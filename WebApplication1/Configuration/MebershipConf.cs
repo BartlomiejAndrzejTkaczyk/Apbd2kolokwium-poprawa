@@ -13,11 +13,13 @@ namespace WebApplication1.Configuration
 
             builder
                 .HasOne(x => x.TheMember)
-                .WithMany(x => x.Memberships);
+                .WithMany(x => x.Memberships)
+                .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(x => x.TheTeam)
-                .WithMany(x => x.Memberships);
+                .WithMany(x => x.Memberships)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

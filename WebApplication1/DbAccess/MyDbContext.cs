@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Configuration;
 using WebApplication1.Extensions;
 using WebApplication1.Models;
 namespace WebApplication1.DbAccess
@@ -21,8 +22,8 @@ namespace WebApplication1.DbAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Seed();
-            
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TeamConf).Assembly);
+            //modelBuilder.Seed();
         }
     }
 }
